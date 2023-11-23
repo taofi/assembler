@@ -1,0 +1,4 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(1134,5): error MSB6006: "link.exe" завершилась с кодом 1120.
+SE_asm01c.obj : error LNK2019: ссылка на неразрешенный внешний символ _getmin в функции _main.
+SE_asm01c.obj : error LNK2019: ссылка на неразрешенный внешний символ _getmax в функции _main.
+D:\projects\asmL\SE_lab19\Debug\SE_asm01c.exe : fatal error LNK1120: неразрешенных внешних элементов: 2

@@ -1,0 +1,6 @@
+﻿  Deserialization.cpp
+  Source.cpp
+D:\projects\asmL\lab4\Deserialization\Source.cpp(4,13): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+D:\projects\asmL\lab4\Deserialization\Source.cpp(8,22): warning C4244: инициализация: преобразование "long" в "unsigned char", возможна потеря данных
+  Создание кода...
+  Deserialization.vcxproj -> D:\projects\asmL\lab4\Debug\Deserialization.exe

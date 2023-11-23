@@ -1,0 +1,90 @@
+Microsoft (R) Macro Assembler (x64) Version 14.37.32824.0   11/04/23 13:26:52
+asm03.asm						     Page 1 - 1
+
+
+				.586P                          ; система подкоманд(процессор Pentium)
+asm03.asm(1) : error A2008:syntax error : .
+				.MODEL FLAT, STDCALL                  ; модель памяти, соглашение о вызове
+asm03.asm(2) : error A2008:syntax error : .
+				includelib kernel32.lib                  ; компановщику: компоновать с kernel32
+
+				ExitProcess PROTO :DWORD                ; прототип функции для завершения процесса Windows
+				MessageBoxA PROTO :DWORD, :DWORD, :DWORD, :DWORD    ; прототип API-функции MessageBoxA
+
+				.STACK 4096                        ; выделение стека
+asm03.asm(8) : error A2008:syntax error : .
+
+ 00000000			.CONST                          ; сегмент констант
+
+ 00000000			.DATA                          ; сегмент данных
+ = 00000000			MB_OK EQU 0                      ; EQU определяет константу  
+ 00000000 6C 61 62 32 00	STR1 DB "lab2", 0    
+ 00000005 D0 E5 E7 F3 EB	STR2 DB "Результат сложения = 0", 0
+	   FC F2 E0 F2 20
+	   F1 EB EE E6 E5
+	   ED E8 FF 20 3D
+	   20 30 00
+ 0000001C 008A 003B 0044	myWords WORD 8Ah, 3Bh, 44h, 5Fh, 99h
+	   005F 0099
+ 00000026 10 20 30 40		myBytes BYTE 10h, 20h, 30h, 40h
+ 0000002A 00000001		myDoubles DWORD 1, 2, 3, 4, 5, 6
+	   00000002
+	   00000003
+	   00000004
+	   00000005
+	   00000006
+ 00000042 0000002A R		myPointre DWORD myDoubles
+ 00000046 00000000		HW DD ?                          ; двойное слово длинной 4 байта, неинициализировано
+
+ 00000000			.CODE                          ; сегмент кода
+
+ 00000000			main PROC                        ; точка входа main
+
+ 00000000  BF 00000002		mov EDI, 2
+ 00000005  66| 8B 87		mov AX, [myWords + EDI]
+	   0000001C R
+ 0000000C  66| 8B 1D		mov BX, myWords[0]
+	   0000001C R
+				    
+ 00000013  6A FF		  push -1                      ; код вовзрата процесса Windows  (параметр ExitProcess)
+ 00000015  E8 00000000 E	  call ExitProcess                  ; конец процедуры
+ 0000001A			main ENDP
+
+				end main                        ; конец модуля main
+Microsoft (R) Macro Assembler (x64) Version 14.37.32824.0   11/04/23 13:26:52
+asm03.asm						     Symbols 2 - 1
+
+
+
+
+Segments:
+
+                N a m e                  Length   Align   Class
+
+CONST  . . . . . . . . . . . . .	 00000000 16	  'CONST'	 ReadOnly
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+ExitProcess  . . . . . . . . . .	P 	 00000000 Length= 00000000 External
+MessageBoxA  . . . . . . . . . .	P 	 00000000 Length= 00000000 External
+main . . . . . . . . . . . . . .	P 	 00000000 _TEXT	Length= 0000001A Public
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+HW . . . . . . . . . . . . . . .	DWord	 00000046 _DATA	
+MB_OK  . . . . . . . . . . . . .	Number	 00000000h   
+STR1 . . . . . . . . . . . . . .	Byte	 00000000 _DATA	
+STR2 . . . . . . . . . . . . . .	Byte	 00000005 _DATA	
+myBytes  . . . . . . . . . . . .	Byte	 00000026 _DATA	
+myDoubles  . . . . . . . . . . .	DWord	 0000002A _DATA	
+myPointre  . . . . . . . . . . .	DWord	 00000042 _DATA	
+myWords  . . . . . . . . . . . .	Word	 0000001C _DATA	
+
+	   0 Warnings
+	   5 Errors

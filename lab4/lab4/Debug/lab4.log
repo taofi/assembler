@@ -1,0 +1,5 @@
+﻿  Serialization.cpp
+  Source.cpp
+D:\projects\asmL\lab4\lab4\Source.cpp(4,13): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+  Создание кода...
+  lab4.vcxproj -> D:\projects\asmL\lab4\Debug\Serialization.exe
